@@ -1,8 +1,5 @@
 import fitz
-
-def convertir_a_flotante(valor_texto):
-    valor_texto = valor_texto.replace('.', '').replace(',', '.')
-    return float(valor_texto)
+from func import convertir_a_flotante
 
 # abre el documento
 documento = fitz.open("factura.pdf")
