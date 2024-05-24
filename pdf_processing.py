@@ -20,6 +20,15 @@ def extraer_datos_pdf(nombre_archivo):
     factura = pagina.get_text("text", clip=factura_rectangulo)
     fecha = pagina.get_text("text", clip=fecha_rectangulo)
 
+    # Dibujar rectangulos
+    pagina.draw_rect(subtotal_rectangulo, color=(0, 1, 0))  # Verde
+    pagina.draw_rect(imp_internos_rectangulo, color=(1, 0, 0))  # Rojo
+    pagina.draw_rect(iva_rectangulo, color=(0, 0, 1))  # Azul
+    pagina.draw_rect(total_rectangulo, color=(1, 1, 0))  # Amarillo
+    pagina.draw_rect(factura_rectangulo, color=(1, 0, 1))  # Magenta
+    pagina.draw_rect(fecha_rectangulo, color=(1, 0, 1))
+    pagina.draw_rect(cantidad_rectangulos, color=(0, 1, 0))  # Verde
+
     # Obtener cantidades de productos
     cantidades_texto = pagina.get_text("text", clip=cantidad_rectangulos)
     cantidades_lineas = cantidades_texto.splitlines()
