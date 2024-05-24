@@ -20,10 +20,7 @@ def escribir_detalles_factura(productos, cursor, archivo_salida):
                     f"{descripcion};{id_producto};{precio_venta1_formateado};{precio_venta2_formateado};{precio_venta3_formateado};"
                     f"{id_producto1};{id_producto2};{id_producto3}\n")
                 print(
-                    f"Código: {codigo}, Cantidad: {cantidad}, Descripción: {descripcion}, Precio Venta: {precio_venta}, "
-                    f"Rubro: {rubro}, Marca: {marca}, Precio Costo: {precio_costo}, Id_Producto: {id_producto}, "
-                    f"Precio_Venta1: {precio_venta1}, Precio_Venta2: {precio_venta2}, Precio_Venta3: {precio_venta3}, "
-                    f"Id_Producto1: {id_producto1}, Id_Producto2: {id_producto2}, Id_Producto3: {id_producto3}")
+                    f"Código: {codigo}, Cantidad: {cantidad}, Descripción: {descripcion}")
             else:
                 archivo_salida.write(f"Producto no cargado/sin relacion interna para el código: {codigo}\n")
                 print(f"Código: {codigo}, Cantidad: {cantidad}, Producto no cargado/sin relación interna")
