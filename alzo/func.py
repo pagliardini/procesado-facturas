@@ -1,3 +1,6 @@
-def convertir_a_flotante(valor_texto):
-    valor_texto = valor_texto.replace('.', '').replace(',', '.')
-    return float(valor_texto)
+def convertir_a_flotante(texto):
+    texto = texto.replace("$", "").replace(",", "").replace(".", "").replace(" ", "")
+    try:
+        return float(texto) / 100
+    except ValueError:
+        return 0.0
