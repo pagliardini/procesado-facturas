@@ -30,7 +30,7 @@ def main():
     print("")
     print("Total:", total)
 
-    datos["documento"].save("documento_con_rectangulo.pdf")
+    datos["documento"].save("factura_con_rectangulo.pdf")
     datos["documento"].close()
     conn.close()
 
