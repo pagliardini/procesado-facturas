@@ -1,7 +1,16 @@
 from db import obtener_producto
+from pdf_processing import extraer_datos_pdf
 
+datos = extraer_datos_pdf("factura.pdf")
+
+fecha = datos["fecha"]
+factura = datos["factura"]
 
 def escribir_detalles_factura(productos, cursor, archivo_salida):
+
+    archivo_salida.write(f"{fecha}")
+    archivo_salida.write(f"{factura}")
+
     for codigo, cantidad in productos.items():
         try:
             resultado = obtener_producto(cursor, codigo)
@@ -14,6 +23,8 @@ def escribir_detalles_factura(productos, cursor, archivo_salida):
                 precio_venta1_formateado = f"{precio_venta1:,.5f}".replace(",", "").replace(".", ",")
                 precio_venta2_formateado = f"{precio_venta2:,.5f}".replace(",", "").replace(".", ",")
                 precio_venta3_formateado = f"{precio_venta3:,.5f}".replace(",", "").replace(".", ",")
+
+
 
                 archivo_salida.write(
                     f"{rubro};{marca};{cantidad_formateada};{precio_costo_formateado};{precio_venta_formateado};"
