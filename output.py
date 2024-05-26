@@ -1,3 +1,4 @@
+import re
 from db import obtener_producto
 from pdf_processing import extraer_datos_pdf
 
@@ -6,11 +7,15 @@ datos = extraer_datos_pdf("factura.pdf")
 fecha = datos["fecha"]
 factura = datos["factura"]
 
+# Eliminar todos los caracteres no numéricos de la variable factura
+factura = re.sub(r'\D', '', factura)[-8:]  # Obtener solo los últimos 8 caracteres numéricos
+
+
 def escribir_detalles_factura(productos, cursor, archivo_salida):
 
     archivo_salida.write(f"{fecha}")
-    archivo_salida.write(f"{factura}")
-
+    archivo_salida.write(f"{factura}\n")
+    
     for codigo, cantidad in productos.items():
         try:
             resultado = obtener_producto(cursor, codigo)

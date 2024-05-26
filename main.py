@@ -13,7 +13,7 @@ def main():
     imp_internos = convertir_a_flotante(datos["imp_internos_texto"])
     iva = convertir_a_flotante(datos["iva_texto"])
     total = convertir_a_flotante(datos["total_texto"])
-
+    print("Cuit:", datos["cuit"].strip())
     print("Factura:", datos["factura"].strip())
     print("Fecha:", datos["fecha"].strip())
     print("")

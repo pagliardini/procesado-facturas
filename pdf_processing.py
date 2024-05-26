@@ -11,6 +11,7 @@ def extraer_datos_pdf(nombre_archivo):
     total_rectangulo = fitz.Rect(367, 448, 415, 465)
     factura_rectangulo = fitz.Rect(330, 15, 415, 25)
     fecha_rectangulo = fitz.Rect(335, 29, 415, 39)
+    cuit_rectangulo = fitz.Rect(335, 41, 415, 49)
 
     # Obtener textos
     subtotal_texto = pagina.get_text("text", clip=subtotal_rectangulo)
@@ -19,6 +20,7 @@ def extraer_datos_pdf(nombre_archivo):
     total_texto = pagina.get_text("text", clip=total_rectangulo)
     factura = pagina.get_text("text", clip=factura_rectangulo)
     fecha = pagina.get_text("text", clip=fecha_rectangulo)
+    cuit = pagina.get_text("text", clip=cuit_rectangulo)
 
     # Dibujar rectangulos
     pagina.draw_rect(subtotal_rectangulo, color=(0, 1, 0))  # Verde
@@ -28,6 +30,7 @@ def extraer_datos_pdf(nombre_archivo):
     pagina.draw_rect(factura_rectangulo, color=(1, 0, 1))  # Magenta
     pagina.draw_rect(fecha_rectangulo, color=(1, 0, 1))
     pagina.draw_rect(cantidad_rectangulos, color=(0, 1, 0))  # Verde
+    pagina.draw_rect(cuit_rectangulo, color=(0, 1, 0))  # Verde
 
     # Obtener cantidades de productos
     cantidades_texto = pagina.get_text("text", clip=cantidad_rectangulos)
@@ -47,5 +50,6 @@ def extraer_datos_pdf(nombre_archivo):
         "factura": factura,
         "fecha": fecha,
         "productos": productos,
-        "documento": documento
+        "documento": documento,
+        "cuit": cuit
     }
