@@ -14,5 +14,5 @@ Este proyecto es una aplicación para el procesamiento y análisis de facturas e
 - `pdf_processing.py`: Contiene la lógica para extraer datos de los archivos PDF.
 - `db.py`: Funciones para interactuar con la base de datos, incluyendo la obtención de detalles de productos y proveedores.
 - `output.py`: Funciones para escribir los detalles de la factura en un archivo de salida.
-- `buscar_proveedor.py`: Script auxiliar para verificar la coincidencia del CUIT extraído del PDF con el almacenado en la base de datos.
+- `func.py`: Funciones auxiliares.
 
