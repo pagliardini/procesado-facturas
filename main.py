@@ -3,6 +3,8 @@ from pdf_processing import extraer_datos_pdf
 from output import escribir_detalles_factura
 from func import convertir_a_flotante
 
+
+
 def main():
     conn = conectar_bd()
     cursor = conn.cursor()

@@ -21,3 +21,14 @@ def obtener_producto(cursor, codigo):
     """
     cursor.execute(query, (codigo,))
     return cursor.fetchone()
+
+def obtener_proveedor(cursor, numero_documento):
+    query = """
+    SELECT Nombre
+    FROM Proveedores
+    WHERE Numero_Documento = %s
+    """
+    cursor.execute(query, (numero_documento,))
+    nombre_proveedor = cursor.fetchone()
+    return nombre_proveedor[0] if nombre_proveedor else None
+
