@@ -22,7 +22,7 @@ def main():
     print("Detalles de la factura:")
 
     # Crear el archivo de salida
-    with open("detalles_factura.txt", "w") as archivo_salida:
+    with open(datos["factura"].strip() + ".txt", "w") as archivo_salida:
         escribir_detalles_factura(datos["productos"], cursor, archivo_salida)
 
     print("")
