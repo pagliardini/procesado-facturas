@@ -34,7 +34,7 @@ def procesar_factura():
         "total": total
     }
 
-    # Crear el archivo de salida
+    # salida txt
     nombre_archivo = datos["factura"].strip() + ".txt"
     with open(nombre_archivo, "w") as archivo_salida:
         escribir_detalles_factura(datos["productos"], cursor, archivo_salida)
