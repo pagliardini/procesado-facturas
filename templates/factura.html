@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Factura</title>
+</head>
+<body>
+    <h1>Detalles de la Factura</h1>
+    <p><strong>CUIT:</strong> {{ detalles.cuit }}</p>
+    <p><strong>Factura:</strong> {{ detalles.factura }}</p>
+    <p><strong>Fecha:</strong> {{ detalles.fecha }}</p>
+    <h2>Productos:</h2>
+    <ul>
+        {% for producto in detalles.productos %}
+            <li>{{ producto }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Subtotal:</strong> {{ detalles.subtotal }}</p>
+    <p><strong>Imp. Internos:</strong> {{ detalles.imp_internos }}</p>
+    <p><strong>IVA:</strong> {{ detalles.iva }}</p>
+    <p><strong>Total:</strong> {{ detalles.total }}</p>
+
+    <a href="{{ url_for('descargar_archivo', nombre_archivo=archivo_txt) }}">
+        <button>Descargar factura para carga</button>
+    </a>
+</body>
+</html>
