@@ -2,7 +2,7 @@ import fitz
 
 def extraer_datos_pdf(nombre_archivo):
     documento = fitz.open(nombre_archivo)
-    pagina = documento[0]  # Accedemos a la primera página
+    pagina = documento[0] # indicamos la pagina inicial
 
     cantidad_rectangulos = fitz.Rect(10, 149, 80, 400)
     subtotal_rectangulo = fitz.Rect(21, 448, 69, 465)
@@ -28,7 +28,7 @@ def extraer_datos_pdf(nombre_archivo):
     pagina.draw_rect(iva_rectangulo, color=(0, 0, 1))  # Azul
     pagina.draw_rect(total_rectangulo, color=(1, 1, 0))  # Amarillo
     pagina.draw_rect(factura_rectangulo, color=(1, 0, 1))  # Magenta
-    pagina.draw_rect(fecha_rectangulo, color=(1, 0, 1))
+    pagina.draw_rect(fecha_rectangulo, color=(1, 0, 1)) # color (?
     pagina.draw_rect(cantidad_rectangulos, color=(0, 1, 0))  # Verde
     pagina.draw_rect(cuit_rectangulo, color=(0, 1, 0))  # Verde
 
